@@ -2,7 +2,8 @@
 import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
 
 const initialState = {
-	testData: []
+	testData: [],
+	fetching: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +12,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				error: '',
-				fetchign: true
+				fetching: true
 			};
 		case FETCH_SUCCESS:
 			return {
@@ -23,7 +24,8 @@ const reducer = (state = initialState, action) => {
 		case FETCH_FAILURE:
 			return {
 				...state,
-				error: action.payload
+				error: action.payload,
+				fetching: false
 			};
 		default:
 			return state;

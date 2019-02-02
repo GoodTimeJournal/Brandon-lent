@@ -1,5 +1,4 @@
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.Journal{
+  display: flex;
 }
