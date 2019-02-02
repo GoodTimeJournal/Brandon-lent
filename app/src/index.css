@@ -2,3 +2,7 @@
 .Journal{
   display: flex;
 }
+
+.ui.button{
+  margin: 10px 0;
+}
