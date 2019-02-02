@@ -1,0 +1,24 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+      "body-parser": "^1.18.2",
+      "cors": "^2.8.4",
+      "express": "^4.16.2",
+      "nodemon": "^1.14.11"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "client-install": "npm install --prefix friends",
+      "start": "node server.js",
+      "server": "nodemon server.js",
+      "client": "npm start --prefix friends",
+      "dev": "concurrently \"npm run server\" \"npm run friends\"",
+      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix friends && npm run build --prefix friends"
+    
+    },
+    "author": "Lambda School",
+    "license": "ISC"
+  }

@@ -7,7 +7,7 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 
 //Database URL
-const databaseURL = '';
+const databaseURL = 'http://localhost:5000';
 
 export const getDataFromDatabase = dispatch => {
     return dispatch => {
