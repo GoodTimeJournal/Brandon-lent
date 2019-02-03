@@ -1,8 +1,16 @@
 
+body{
+  font-family: 'Playfair Display', serif;
+}
+
 .Journal{
   display: flex;
 }
 
 .ui.button{
   margin: 10px 0;
+}
+/* Get rid of border-radius */
+.ui.inverted.menu{
+  border-radius: 0;
 }

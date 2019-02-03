@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 
 //File imports
 import LoginPage from './Login/Login';
-import JournalPage from './Journal/Journal';
-import NewPost from './Journal/NewPost';
+import Home from './Journal/Journal';
+import NewJournalPost from './Journal/NewJournalPost';
+import NewReflectionPost from './Journal/NewReflectionPost';
 import {getDataFromDatabase} from '../actions';
 
 class App extends Component {
@@ -18,9 +19,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/' component={LoginPage}/>
-        <Route exact path='/Journal' component={JournalPage}/>
-        <Route path='/Journal/new' component={NewPost} />
+        <Route exact path='/' render={props => <LoginPage {...props}/>}/>
+        <Route exact path='/home' component={Home}/>
+        
+        <Route path='/journal/new' component={NewJournalPost} />
+
+        <Route path='/reflection/new' component={NewReflectionPost} />
       </div>
     );
   }
