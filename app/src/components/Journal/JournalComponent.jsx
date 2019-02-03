@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Journals = props => {
+const JournalComponent = props => {
     return(
         <>
             <h1>Journal</h1>
@@ -9,4 +9,4 @@ const Journals = props => {
 }
 
 
-export default Journals;
+export default JournalComponent;

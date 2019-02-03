@@ -9,6 +9,7 @@ import Home from '../views/Home';
 import NewJournal from '../views/NewJournal';
 import NewReflection from '../views/NewReflection';
 import Journals from '../views/Journals';
+import Reflections from '../views/Reflections';
 
 
 import {getDataFromDatabase} from '../actions';
@@ -25,6 +26,7 @@ class App extends Component {
         <Route exact path='/' render={props => <Login {...props}/>}/>
         <Route exact path='/home' component={Home}/>
         <Route exact path='/journal' component={Journals} />
+        <Route exact path='/reflection' component={Reflections} />
         <Route path='/journal/new' component={NewJournal} />
         <Route path='/reflection/new' component={NewReflection} />
       </div>
