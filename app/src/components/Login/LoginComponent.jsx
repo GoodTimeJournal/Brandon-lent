@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../../assets/DYLLogo.png';
 
 const LoginPage = (props) => {
-  console.log(props)
 	return (
 		<Container>
 			<LoginContainerStyling>
@@ -14,7 +14,7 @@ const LoginPage = (props) => {
 					{/* Form is styled with css instead of styled components */}
 					<LoginForm>
 						<img src={Logo} alt="Background" />
-						<Form onSubmit={() => props.history.push('/home')} className="custom-form">
+						<Form onSubmit={() => props.props.history.push('/home')} className="custom-form">
 							<FormGroup>
 								<Input
 									required

@@ -4,10 +4,13 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //File imports
-import LoginPage from './Login/Login';
-import Home from './Journal/Journal';
-import NewJournalPost from './Journal/NewJournalPost';
-import NewReflectionPost from './Journal/NewReflectionPost';
+import Login from '../views/Login';
+import Home from '../views/Home';
+import NewJournal from '../views/NewJournal';
+import NewReflection from '../views/NewReflection';
+import Journals from '../views/Journals';
+
+
 import {getDataFromDatabase} from '../actions';
 
 class App extends Component {
@@ -19,12 +22,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/' render={props => <LoginPage {...props}/>}/>
+        <Route exact path='/' render={props => <Login {...props}/>}/>
         <Route exact path='/home' component={Home}/>
-        
-        <Route path='/journal/new' component={NewJournalPost} />
-
-        <Route path='/reflection/new' component={NewReflectionPost} />
+        <Route exact path='/journal' component={Journals} />
+        <Route path='/journal/new' component={NewJournal} />
+        <Route path='/reflection/new' component={NewReflection} />
       </div>
     );
   }

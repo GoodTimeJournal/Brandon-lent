@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Navigation';
+import Navigation from '../../views/Navigation';
 
 const NewJournalPost = props => {
     return(

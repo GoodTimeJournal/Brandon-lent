@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-import Navigation from './Navigation';
 import { Button } from 'semantic-ui-react'
 import styled from 'styled-components';
 
 
-const Journal = (props) => {
+export const HomeComponent = (props) => {
 	return (
         <>
-            <Navigation />
             <BackgroundStyle alt=""/>
             <HeaderText>Welcome to your dashboard. name!</HeaderText>
             <JournalStyling>
@@ -28,7 +26,6 @@ const Journal = (props) => {
 	);
 };
 
-export default Journal;
 
 const BackgroundStyle = styled.div`
     background-image: linear-gradient(to bottom, #d183e8, #bf8dee, #ae95f1, #9f9cf1, #92a2ee, #83acf4, #74b6f7, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
