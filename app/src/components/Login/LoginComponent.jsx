@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from '../../assets/DYLLogo.png';
+import Logo from '../../assets/Logo.png';
 
 const LoginPage = (props) => {
 	return (
@@ -30,11 +30,6 @@ const LoginPage = (props) => {
 								Submit
 							</Button>
 						</Form>
-						<SeperateContent>
-							<hr />
-							<p>OR</p>
-							<hr />
-						</SeperateContent>
 						<Signup>
 							<div>
 								<i className="fab fa-facebook" />
@@ -100,7 +95,7 @@ const LoginForm = styled.div`
 	border-radius: 3px;
 	background-color: white;
 	img {
-		width: 60%;
+		width: 40%;
 		margin-bottom: 20px;
 	}
 	form {
@@ -143,6 +138,7 @@ const Signup = styled.div`
 	justify-content: center;
 	align-items: center;
 	color: #3c5181;
+	margin-top: 20px;
 	a {
 		color: #3c5181;
 		font-size: 14px;
