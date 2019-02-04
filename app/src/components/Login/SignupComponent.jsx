@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/Logo.png";
-import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const SignupComponent = props => {
   return (
@@ -19,6 +19,7 @@ const SignupComponent = props => {
                 label="Email"
                 placeholder="email"
                 margin="normal"
+                autoComplete="off"
               />
               <TextField
                 id="standard-with-placeholder"
@@ -33,6 +34,11 @@ const SignupComponent = props => {
                 margin="normal"
                 type="password"
               />
+              <ButtonContainer>
+                <Button type="submit" variant="contained">
+                  Primary
+                </Button>
+              </ButtonContainer>
             </form>
           </LoginForm>
         </RightContainer>
@@ -92,4 +98,7 @@ const LoginForm = styled.div`
     font-size: 3px;
     margin-bottom: 25px;
   }
+`;
+const ButtonContainer = styled.div`
+  margin-top: 10px;
 `;
