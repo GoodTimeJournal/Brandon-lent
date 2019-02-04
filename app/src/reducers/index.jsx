@@ -1,35 +1,11 @@
-//Action Imports
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions';
+import { combineReducers } from 'redux'
+import userReducer from './userReducer';
+import activityReducer from './activityReducer';
+import reflectionReducer from './reflectionReducer';
 
-const initialState = {
-	Accounts: [],
-	fetching: false
-};
+export default combineReducers({
+	userReducer,
+	activityReducer,
+	reflectionReducer
+})
 
-const reducer = (state = initialState, action) => {
-	switch (action.type) {
-		case FETCH_START:
-			return {
-				...state,
-				error: '',
-				fetching: true
-			};
-		case FETCH_SUCCESS:
-			return {
-				...state,
-				testData: [ ...state.testData, ...action.payload ],
-				fetching: false,
-				error: ''
-			};
-		case FETCH_FAILURE:
-			return {
-				...state,
-				error: action.payload,
-				fetching: false
-			};
-		default:
-			return state;
-	}
-};
-
-export default reducer;

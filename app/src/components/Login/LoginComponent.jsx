@@ -78,15 +78,7 @@ const LoginContainerStyling = styled.div`
 	align-items: center;
 `;
 
-const LeftContainer = styled.div`
-	margin-right: 24px;
-	img {
-		height: 600px;
-	}
-	@media (max-width: 700px) {
-		display: none;
-	}
-`;
+
 const RightContainer = styled.div`
 	height: 600px;
 	width: 350px;

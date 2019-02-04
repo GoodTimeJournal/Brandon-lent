@@ -1,7 +1,7 @@
 //React imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, withRouter} from "react-router-dom";
+import { BrowserRouter as Router, withRouter } from "react-router-dom";
 
 //Redux Imports
 import logger from 'redux-logger';
@@ -26,5 +26,5 @@ ReactDOM.render(
         <Provider store={store}>
             <AppWithRouter />
         </Provider>
-    </Router>, 
+    </Router>,
     document.getElementById('root'));

@@ -12,23 +12,23 @@ import Journals from '../views/Journals';
 import Reflections from '../views/Reflections';
 
 
-import {getDataFromDatabase} from '../actions';
+import { getUser } from '../actions/User';
 
 class App extends Component {
 
-  componentDidMount(){
-    this.props.getDataFromDatabase();
+  componentDidMount() {
+    this.props.getUser();
   }
 
   render() {
     return (
       <div className="App">
-        <Route exact path='/' render={props => <Login {...props}/>}/>
-        <Route exact path='/home' component={Home}/>
-        <Route exact path='/journal' component={Journals} />
+        <Route exact path='/' render={props => <Login {...props} />} />
+        <Route exact path='/home' component={Home} />
+        {/* <Route exact path='/journal' component={Journals} />
         <Route exact path='/reflection' component={Reflections} />
         <Route path='/journal/new' component={NewJournal} />
-        <Route path='/reflection/new' component={NewReflection} />
+        <Route path='/reflection/new' component={NewReflection} /> */}
       </div>
     );
   }
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getDataFromDatabase })(App);
+export default connect(mapStateToProps, { getUser })(App);
