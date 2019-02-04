@@ -31,6 +31,7 @@ const SignupComponent = props => {
                 label="Password"
                 placeholder="password"
                 margin="normal"
+                type="password"
               />
             </form>
           </LoginForm>
@@ -76,9 +77,9 @@ const RightContainer = styled.div`
 
 const LoginForm = styled.div`
   border: 1px solid #e6e6e6;
-  height: 356px;
+
   padding: 30px 30px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   margin-bottom: 10px;
   margin-top: 25px;
   border-radius: 3px;
@@ -89,5 +90,6 @@ const LoginForm = styled.div`
   }
   form {
     font-size: 3px;
+    margin-bottom: 25px;
   }
 `;
