@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const NewReflectionPost = props => {
-    return(
+    return (
         <div>
             <h1>New Post</h1>
         </div>

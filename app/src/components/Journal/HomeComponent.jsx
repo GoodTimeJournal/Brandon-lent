@@ -1,20 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Button } from 'semantic-ui-react'
 import styled from 'styled-components';
 
 
 export const HomeComponent = (props) => {
-	return (
+    return (
         <>
-            <BackgroundStyle alt=""/>
+            <BackgroundStyle alt="" />
             <HeaderText>Welcome to your dashboard. name!</HeaderText>
             <JournalStyling>
                 <ActivityLogStyling>
                     <h2>Activity Log</h2>
-                    <Link to ='/journal'><Button fluid color='purple'>Activity Log</Button></Link>
-                   <Link to='/journal/new'><Button fluid color='purple'>New</Button></Link> 
+                    <Link to='/journal'><Button fluid color='purple'>Activity Log</Button></Link>
+                    <Link to='/journal/new'><Button fluid color='purple'>New</Button></Link>
                 </ActivityLogStyling>
                 <ReflectionLogStyling>
                     <h2>Reflection Log</h2>
@@ -23,10 +23,10 @@ export const HomeComponent = (props) => {
                 </ReflectionLogStyling>
             </JournalStyling>
         </>
-	);
+    );
 };
 
-
+//Styled Components
 const BackgroundStyle = styled.div`
     background-image: linear-gradient(to bottom, #d183e8, #bf8dee, #ae95f1, #9f9cf1, #92a2ee, #83acf4, #74b6f7, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
     height: 100vh;

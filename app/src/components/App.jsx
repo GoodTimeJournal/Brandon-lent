@@ -17,11 +17,13 @@ import { getUser } from '../actions/User';
 class App extends Component {
 
   componentDidMount() {
+    //Get the user once this component mounts.
     this.props.getUser();
   }
 
   render() {
     return (
+      //Need to implement single page functionality.
       <div className="App">
         <Route exact path='/' render={props => <Login {...props} />} />
         <Route exact path='/home' component={Home} />
@@ -35,7 +37,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     Accounts: state.Accounts
   }

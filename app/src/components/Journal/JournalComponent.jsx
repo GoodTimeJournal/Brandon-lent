@@ -1,7 +1,7 @@
 import React from 'react';
 
 const JournalComponent = props => {
-    return(
+    return (
         <>
             <h1>Journal</h1>
         </>

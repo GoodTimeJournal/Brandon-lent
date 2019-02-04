@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReflectionComponent = props => {
-    return(
+    return (
         <>
             <h1>Reflections</h1>
         </>

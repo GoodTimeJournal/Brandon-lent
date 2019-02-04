@@ -16,7 +16,7 @@ export const DELETE_ACTIVITY_SUCCESS = 'DELETE_ACTIVITY_SUCCESS';
 export const DELETE_ACTIVITY_FAIL = 'DELETE_ACTIVITY_FAIL';
 
 //base URL
-import {baseURL} from './baseURL';
+import { baseURL } from './baseURL';
 
 //Create
 export const addActivity = (activity) => (dispatch) => {
@@ -56,6 +56,7 @@ export const updateActivity = (activity) => (dispatch) => {
 };
 
 //Delete
+// DOES NOT WORK -- NEED TO GET API URL.
 export const deleteActivity = (id) => (dispatch) => {
 	axios.delete(`${baseURL}/${id}`).then((res) =>
 		dispatch({
