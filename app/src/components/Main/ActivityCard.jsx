@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "@material-ui/core";
 
 const ActivityCard = props => {
-  console.log(props);
   return (
     <div className="activity-card">
       <div className="title-date">

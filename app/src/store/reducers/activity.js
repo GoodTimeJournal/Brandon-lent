@@ -23,6 +23,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    
     case GET_ACTIVITIES:
       return { ...state, isLoading: true, error: '' };
     case GET_ACTIVITIES_COMPLETE:
@@ -66,6 +67,7 @@ export default function(state = initialState, action) {
       return { ...state, isLoading: false, error: action.payload };
     case DELETE_ACTIVITY:
       return { ...state, isLoading: true, error: '' };
+
     case DELETE_ACTIVITY_COMPLETE:
       return {
         ...state,
@@ -73,6 +75,7 @@ export default function(state = initialState, action) {
         isLoading: false,
         error: ''
       };
+
     case DELETE_ACTIVITY_FAIL:
       return { ...state, isLoading: false, error: action.payload };
 
