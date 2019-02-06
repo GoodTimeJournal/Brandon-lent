@@ -1,25 +1,49 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from '../actions/User';
+import {
+  LOGIN_USER,
+  LOGIN_USER_COMPLETE,
+  LOGIN_USER_FAIL,
+  REGISTER_USER,
+  REGISTER_USER_COMPLETE,
+  REGISTER_USER_FAIL,
+  LOG_OUT
+} from "../actions/User";
 
 const initialState = {
-	user: {},
-	error: '',
-	isLoading: false
+  user: {},
+  error: "",
+  isLoading: false,
+  loggedIn: false
 };
 
 export default (state = initialState, action) => {
-	switch (action.type) {
-		case FETCH_START:
-			return { ...state, isLoading: true, error: '' };
-		case FETCH_SUCCESS:
-			return {
-				...state,
-				user: action.payload,
-				isLoading: false,
-				error: ''
-			};
-		case FETCH_FAILURE:
-			return { ...state, isLoading: false, error: action.payload };
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case LOGIN_USER:
+      return { ...state, isLoading: true, error: "" };
+    case LOGIN_USER_COMPLETE:
+      return {
+        ...state,
+        user: action.payload,
+        isLoading: false,
+        loggedIn: true,
+        error: ""
+      };
+    case LOGIN_USER_FAIL:
+      return { ...state, isLoading: false, error: action.payload };
+    case LOG_OUT:
+      return { ...state, loggedIn: false, token: "" };
+    case REGISTER_USER:
+      return { ...state, isLoading: true, error: "" };
+    case REGISTER_USER_COMPLETE:
+      return {
+        ...state,
+        user: action.payload,
+        isLoading: false,
+        error: ""
+      };
+    case REGISTER_USER_FAIL:
+      return { ...state, isLoading: false, error: action.payload };
+
+    default:
+      return state;
+  }
 };

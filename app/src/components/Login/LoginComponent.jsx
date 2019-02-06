@@ -14,20 +14,24 @@ const LoginPage = props => {
           {/* Form is styled with css instead of styled components */}
           <LoginForm>
             <img src={Logo} alt="Background" />
-            <Form onSubmit={e => props.logIn(e)} className="custom-form">
+            <Form onSubmit={props.loginUser} className="custom-form">
               <FormGroup>
                 <Input
                   required
+                  onChange={props.handleChange}
                   type="text"
                   name="username"
+                  value={props.username}
                   placeholder="Enter your username"
                 />
               </FormGroup>
               <FormGroup>
                 <Input
+                  onChange={props.handleChange}
                   required
                   type="password"
                   name="password"
+                  value="props.password"
                   placeholder="Password"
                 />
               </FormGroup>

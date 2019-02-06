@@ -10,8 +10,6 @@ import Home from "../views/Home";
 // import Journals from "../views/Journals";
 // import Reflections from "../views/Reflections";
 
-import { getUser } from "../actions/User";
-
 class App extends Component {
   constructor() {
     super();
@@ -21,7 +19,7 @@ class App extends Component {
   }
   componentDidMount() {
     //Get the user once this component mounts.
-    this.props.getUser();
+    // this.props.getUser();
   }
 
   logIn = e => {
@@ -47,14 +45,14 @@ class App extends Component {
     );
   }
 }
+export default App;
+// const mapStateToProps = state => {
+//   return {
+//     Accounts: state.Accounts
+//   };
+// };
 
-const mapStateToProps = state => {
-  return {
-    Accounts: state.Accounts
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { getUser }
-)(App);
+// export default connect(
+//   mapStateToProps,
+//   { getUser }
+// )(App);
