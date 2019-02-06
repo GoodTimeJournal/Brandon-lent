@@ -12,6 +12,7 @@ import ActionButtons from "../components/Main/ActionButtons";
 import SidebarLeft from "../components/Main/SidebarLeft";
 import SearchBar from "../components/Main/SearchBar";
 import "../styles/Feed.scss";
+const token = localStorage.getItem("token");
 
 class MainView extends Component {
   state = {
@@ -19,7 +20,6 @@ class MainView extends Component {
   };
 
   componentDidMount = () => {
-    const token = localStorage.getItem("token");
     this.props.getActivities(token);
     // this.props.getReflections(token);
   };
@@ -30,8 +30,8 @@ class MainView extends Component {
   };
 
   deleteActivity = id => {
-    const token = localStorage.getItem("token");
     this.props.deleteActivity(token, id);
+    this.props.getActivities(token);
   };
 
   editActivity = id => {
@@ -67,10 +67,7 @@ class MainView extends Component {
     ) : (
       <>
         <div className="home-display">
-          <div className="feed">
-            {/* <SearchBar /> */}
-            {mappedActivities}
-          </div>
+          <div className="feed">{mappedActivities}</div>
         </div>
         <ActionButtons history={this.props.history} />
       </>
