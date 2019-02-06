@@ -1,0 +1,70 @@
+.loader-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 45%;
+}
+
+.feed {
+  position: absolute;
+  right: 5%;
+  margin-top: 100px;
+
+  .search-input {
+    width: 600px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid grey;
+    background: #fafafa;
+    padding: 5px;
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .activity-card {
+    width: 600px;
+    margin: 20px 0;
+    border: 1px solid #2b3039;
+    border-radius: 3px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    background: white;
+
+    .title-date {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 25px 35px 15px 35px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid lightgray;
+    }
+
+    .ratings {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .rating-titles {
+      text-transform: uppercase;
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    }
+
+    .rating-numbers {
+      p {
+        font-size: 2.4rem;
+      }
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 50px;
+    }
+  }
+}

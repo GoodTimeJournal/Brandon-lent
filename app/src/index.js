@@ -1,32 +1,19 @@
-//React imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, withRouter } from "react-router-dom";
+import App from './App';
+import { BrowserRouter as Router, withRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-//Redux Imports
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux'
+import store from './store';
 
-//Reducer
-import rootReducer from './reducers';
-
-//Custom file imports
-import './index.css';
-import App from './components/App.jsx';
-
-//Semantic UI
-import 'semantic-ui-css/semantic.min.css'
-
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 const AppWithRouter = withRouter(App);
 
-
-ReactDOM.render(
+const app = (
+  <Provider store={store}>
     <Router>
-        <Provider store={store}>
-            <AppWithRouter />
-        </Provider>
-    </Router>,
-    document.getElementById('root'));
+      <AppWithRouter />
+    </Router>
+  </Provider>
+);
+
+ReactDOM.render(app, document.getElementById('root'));

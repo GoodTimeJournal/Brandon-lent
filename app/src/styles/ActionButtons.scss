@@ -1,0 +1,66 @@
+.buttons {
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  .add-button {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    background: #4f86ec;
+    color: #aaefc8;
+    margin: 10px;
+    &:hover {
+      background: #aaefc8;
+      color: #4f86ec;
+    }
+  }
+  .subtract-button {
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    background: #aaefc8;
+    color: white;
+    margin: 10px;
+    &:hover {
+      background: #4f86ec;
+      color: #aaefc8;
+    }
+  }
+  p {
+    font-size: 10px;
+  }
+  .reflection-icon {
+    position: fixed;
+    bottom: 25px;
+    left: 85px;
+    background: #aaefc8;
+    color: white;
+    margin: 10px;
+    &:hover {
+      background: #4f86ec;
+      color: #aaefc8;
+    }
+  }
+  .reflection-text {
+    position: fixed;
+    bottom: 8px;
+    left: 99px;
+  }
+  .activity-icon {
+    position: fixed;
+    bottom: 85px;
+    left: 25px;
+    background: #aaefc8;
+    color: white;
+    margin: 10px;
+    &:hover {
+      background: #4f86ec;
+      color: #aaefc8;
+    }
+  }
+  .activity-text {
+    position: fixed;
+    bottom: 69px;
+    left: 44px;
+  }
+}
