@@ -1,21 +1,20 @@
 import React from "react";
 import styles from "styled-components";
 import Logo from "../../styles/nav-logo.png";
-import GoogleSignIn from "../../styles/btn_google_signin_dark_normal_web@2x.png";
+import Loader from "react-loader-spinner";
 
 const Login = props => {
-  console.log(props);
   return (
     <LoginPageStyles>
       <LoginMenuStyles onSubmit={props.loginUser}>
         <LogoImage src={Logo} />
-        <br />
-        <LogoImage src={GoogleSignIn} />
+        {/* <br />
+        {/* <LogoImage src={GoogleSignIn} />
         <SeperateContent>
           <hr />
           <p>or</p>
           <hr />
-        </SeperateContent>
+        </SeperateContent> */}
         <LoginInputStyles
           placeholder="Username"
           onChange={props.handleChange}
@@ -33,9 +32,11 @@ const Login = props => {
           minLength="6"
           type="password"
         />
-        <LoginButton type="submit">Login</LoginButton>
+        <LoginButton>
+          {props.isLoading ? <div>Loading</div> : "Login"}
+        </LoginButton>
         <br />
-        <p>Forgot your password?</p>
+        <LoginPageText>Forgot your password?</LoginPageText>
       </LoginMenuStyles>
       <SwitchMenuStyles>
         <CreateAccount onClick={props.switchView}>Create Account</CreateAccount>
@@ -54,7 +55,19 @@ const LoginPageStyles = styles.div`
   height: 100vh;
   background: #FAFAFA;
  `;
+const LoginPageText = styles.h2`
+ font-size: 12px;
+ font-weight: 700;
+ color: #9A9A9A;
+ margin: 10px 0;
+ padding: 0 10px;
+ text-align: center;
+ line-height: 1.5;
 
+ &:hover {
+   cursor: pointer;
+ }
+`;
 const LoginMenuStyles = styles.form`
   display: flex;
   flex-direction: column;

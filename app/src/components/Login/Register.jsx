@@ -2,9 +2,9 @@ import React from "react";
 import styles from "styled-components";
 import Logo from "../../styles/nav-logo.png";
 import TextField from "@material-ui/core/TextField";
+import Loader from "react-loader-spinner";
 
 const Register = props => {
-  console.log(props);
   return (
     <LoginPageStyles>
       <LoginMenuStyles autoComplete="false" onSubmit={props.registerUser}>
@@ -13,10 +13,10 @@ const Register = props => {
           fullWidth
           label="Full Name"
           placeholder="Full Name"
-          onChange={props.handleChange}
+          // onChange={props.handleChange}
           name="fullname"
           type="text"
-          value={props.currentName}
+          // value={props.currentName}
           required
           minLength="2"
         />
@@ -24,9 +24,9 @@ const Register = props => {
           fullWidth
           label="Email"
           placeholder="Email"
-          onChange={props.handleChange}
+          // onChange={props.handleChange}
           name="email"
-          value={props.currentUsername}
+          // value={props.currentUsername}
           required
           minLength="4"
         />
@@ -51,15 +51,21 @@ const Register = props => {
           minLength="6"
           type="password"
         />
-        <LoginButton>Create Account</LoginButton>
+
+        <LoginButton>
+          {props.isLoading ? (
+            <Loader type="TailSpin" color="white" height={18} width={18} />
+          ) : (
+            "Create Account"
+          )}
+        </LoginButton>
         <LoginPageText>
-          By signing up, you agree to our Terms, Data Policy. We take your
-          privacy seriously.
+          By signing up, you agree to our Terms, Data Policy.
         </LoginPageText>
       </LoginMenuStyles>
       <SwitchMenuStyles>
         <GoBackContainer onClick={props.switchView}>
-          <GobackIcon className="fas fa-arrow-left" />
+          <GoBackIcon className="fas fa-arrow-left" />
           <CreateAccount>Go Back</CreateAccount>
         </GoBackContainer>
       </SwitchMenuStyles>
@@ -92,30 +98,18 @@ const LoginMenuStyles = styles.form`
   
 `;
 
-// const LoginInputStyles = styles.input`
-//   border: 1px solid #EFEFEF;
-//   border-radius: 3px;
-//   margin-bottom: 7px;
-//   padding: 10px 0 10px 7px;
-//   width: 270px;
-//   background: #FAFAFA;
-
-//   &:focus {
-//     outline: none;
-//   }
-// `;
-
 const LoginButton = styles.button`
   width: 272px;
-  border: 1px solid #4e6d79;
+  height: 40px;
+  border: 1px solid #44e6d79;
   border-radius: 4px;
-  padding: 10px;
-  margin-top: 30px;
+  padding: 0 10px;
+  margin-top: 15px;
   color: white;
   font-weight: 700;
   font-size: 14px;
-  background: #4F86EC;
-
+  background: #4e6d79;
+  
   &:hover {
     cursor: pointer;
   }
@@ -126,7 +120,7 @@ const LoginPageText = styles.h2`
   font-weight: 700;
   color: #9A9A9A;
   margin: 15px 0;
-  padding: 0 30px;
+  padding: 0 10px;
   text-align: center;
   line-height: 1.5;
 `;
@@ -142,10 +136,6 @@ const SwitchMenuStyles = styles.form`
   padding: 20px 0;
   margin-top: 15px;
 `;
-// const SignUpText = styles.h2`
-//   font-size: 28px;
-//   margin-top: 25px;
-// `;
 
 const LogoImage = styles.img`
   width: 200px;
@@ -165,6 +155,8 @@ const CreateAccount = styles.p`
   padding: 0;
   margin-left: 5px;
 `;
-const GobackIcon = styles.i`
-  font-size: 24px
+const GoBackIcon = styles.i`
+  font-size: 18px
+  margin-right: 3px;
+  padding-bottom: .5px;
 `;

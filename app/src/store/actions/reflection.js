@@ -10,6 +10,11 @@ export const UPDATE_REFLECTION_FAIL = 'UPDATE_REFLECTION_FAIL';
 export const DELETE_REFLECTION = 'DELETE_REFLECTION';
 export const DELETE_REFLECTION_COMPLETE = 'DELETE_REFLECTION_COMPLETE';
 export const DELETE_REFLECTION_FAIL = 'DELETE_REFLECTION_FAIL';
+export const GET_REFLECTIONS = 'GET_REFLECTIONS';
+export const GET_REFLECTIONS_COMPLETE = 'GET_REFLECTIONS_COMPLETE';
+export const GET_REFLECTIONS_FAIL = 'GET_REFLECTIONS_FAIL';
+
+const baseURL = 'https://polar-plateau-24996.herokuapp.com';
 
 export const addReflection = reflection => dispatch => {
   dispatch({
@@ -65,4 +70,20 @@ export const deleteReflection = id => dispatch => {
       payload: res.data
     })
   );
+};
+
+export const getReflections = token => dispatch => {
+  dispatch({
+    type: GET_REFLECTIONS
+  });
+
+  axios
+    .get(`${baseURL}/reflections`, { headers: { Authorization: token } })
+    .then(res =>
+      dispatch({
+        type: GET_REFLECTIONS_COMPLETE,
+        payload: res.data
+      })
+    )
+    .catch(err => console.log(err));
 };

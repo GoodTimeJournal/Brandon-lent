@@ -1,51 +1,56 @@
 import axios from 'axios';
 
-export const GET_USER = 'GET_USER';
-export const GET_USER_COMPLETE = 'GET_USER_COMPLETE';
-export const GET_USER_FAIL = 'GET_USER_FAIL';
+export const LOGIN_USER = 'LOGIN_USER';
+export const LOGIN_USER_COMPLETE = 'LOGIN_USER_COMPLETE';
+export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
+export const REGISTER_USER = 'REGISTER_USER';
+export const REGISTER_USER_COMPLETE = 'REGISTER_USER_COMPLETE';
+export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL';
+export const LOG_OUT = 'LOG_OUT';
 
-export const ADD_USER_START = "ADD_USER_START";
-export const ADD_USER_SUCCESS = "ADD_USER_SUCCESS";
-export const ADD_USER_FAILURE = "ADD_USER_FAILURE";
-
-const baseURL = 'https://polar-plateau-24996.herokuapp.com'
-
-export const getUser = userData => dispatch => {
+const baseURL = 'https://polar-plateau-24996.herokuapp.com';
+export const loginUser = user => dispatch => {
   dispatch({
-    type: GET_USER
+    type: LOGIN_USER
   });
-  
   axios
-    .post(`${baseURL}/api/login`, userData)
+    .post(`${baseURL}/api/login`, user)
     .then(res =>
-       dispatch({
-        type: GET_USER_COMPLETE,
+      dispatch({
+        type: LOGIN_USER_COMPLETE,
         payload: res.data
       })
-    
     )
     .catch(err =>
       dispatch({
-        type: GET_USER_FAIL,
+        type: LOGIN_USER_FAIL,
         error: err
       })
     );
 };
 
-export const saveUser = userData => dispatch => {
-  dispatch({ type: ADD_USER_START });
+export const logout = () => {
+  return {
+    type: LOG_OUT
+  };
+};
+
+export const registerUser = user => dispatch => {
+  dispatch({
+    type: REGISTER_USER
+  });
   axios
-    .post(`${baseURL}/api/register`, userData)
+    .post(`${baseURL}/api/register`, user)
     .then(res =>
       dispatch({
-        type: ADD_USER_SUCCESS,
+        type: REGISTER_USER_COMPLETE,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: ADD_USER_FAILURE,
-        error: err
+        type: REGISTER_USER_FAIL,
+        payload: err
       })
     );
 };

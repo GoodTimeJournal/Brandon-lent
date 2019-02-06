@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
-import { saveUser, getUser } from "../store/actions/user";
-
 import { connect } from "react-redux";
+import { registerUser, loginUser } from "../store/actions/user";
 
 class LoginView extends Component {
   state = {
@@ -24,33 +23,38 @@ class LoginView extends Component {
 
   registerUser = e => {
     e.preventDefault();
-    this.props.saveUser(this.state.user);
-    //this.redirect();
+    this.props.registerUser(this.state.user);
+    this.setState({
+      isNewUser: false
+    });
   };
 
   loginUser = e => {
     e.preventDefault();
-    this.props.getUser(this.state.user);
+    this.props.loginUser(this.state.user);
   };
 
   handleChange = e => {
     e.preventDefault();
-    console.log(this.state);
-    this.setState({ ...this.state, user: { [e.target.name]: e.target.value } });
+    this.setState({
+      ...this.state,
+      user: { ...this.state.user, [e.target.name]: e.target.value }
+    });
   };
 
   render() {
     return this.state.isNewUser ? (
       <Register
-        registerUser={this.registerUser}
         handleChange={this.handleChange}
         switchView={this.switchView}
+        registerUser={this.registerUser}
       />
     ) : (
       <Login
+        switchView={this.switchView}
         loginUser={this.loginUser}
         handleChange={this.handleChange}
-        switchView={this.switchView}
+        isLoading={this.props.isLoading}
       />
     );
   }
@@ -58,11 +62,11 @@ class LoginView extends Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.isLoading
+    isLoading: state.user.isLoading
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getUser, saveUser }
+  { registerUser, loginUser }
 )(LoginView);

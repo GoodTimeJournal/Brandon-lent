@@ -8,9 +8,9 @@ const Navigation = props => {
       <NavLink to="/">
         <img className="logo" src={logo} alt="Good Time Journal" />
       </NavLink>
-      <div className="primary-nav">
+      {/* <div className="primary-nav">
         <i onClick={props.logOut} className="fas fa-sign-out-alt" />
-      </div>
+      </div> */}
     </nav>
   );
 };

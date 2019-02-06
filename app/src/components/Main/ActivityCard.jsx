@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
+import { Button } from "@material-ui/core";
 
 const ActivityCard = props => {
+  console.log(props);
   return (
     <div className="activity-card">
       <div className="title-date">
@@ -17,10 +19,12 @@ const ActivityCard = props => {
         <p>{props.enjoymentRating}</p>
         <p>{props.engagement}</p>
       </div>
-      <div className="card-buttons">
-        <button onClick={() => props.editActivity(props.id)}>Edit</button>
-        <button>Delete</button>
-      </div>
+      <Button className="edit" onClick={() => props.editActivity(props.id)}>
+        Edit
+      </Button>
+      <Button className="delete" onClick={() => props.deleteActivity(props.id)}>
+        Delete
+      </Button>
     </div>
   );
 };

@@ -1,39 +1,60 @@
-import React, { Component } from 'react';
-import ActivityForm from '../components/Main/ActivityForm';
-import { connect } from 'react-redux';
-import { addActivity, updateActivity } from '../store/actions/activity';
+import React, { Component } from "react";
+import ActivityForm from "../components/Main/ActivityForm";
+import { connect } from "react-redux";
+import { addActivity, updateActivity } from "../store/actions/activity";
 
 class ActivityFormView extends Component {
   state = {
     activity: {
-      name: '',
-      enjoymentRating: '',
-      energyLevel: '',
-      engagement: '',
-      timestamp: ''
+      name: "",
+      fk: "",
+      enjoymentRating: "",
+      energyLevel: "",
+      engagement: ""
     }
   };
 
   componentDidMount = () => {
-    this.setState({ activity: this.props.activeEdit });
-  };
-
-  handleChange = e => {
     this.setState({
       ...this.state,
-      activity: { ...this.state.activity, [e.target.name]: e.target.value }
+      activity: {
+        ...this.state.activity,
+        fk: parseInt(localStorage.getItem("id"))
+      }
     });
   };
 
+  handleChange = e => {
+    if (isNaN(e.target.value) || e.target.value === "") {
+      this.setState({
+        ...this.state,
+        activity: {
+          ...this.state.activity,
+          [e.target.name]: e.target.value
+        }
+      });
+    } else
+      this.setState({
+        ...this.state,
+        activity: {
+          ...this.state.activity,
+          [e.target.name]: parseInt(e.target.value)
+        }
+      });
+  };
+
   handleSubmit = e => {
+    const token = localStorage.getItem("token");
     e.preventDefault();
     this.props.isEditing // isEditing coming from Redux store
       ? this.props.updateActivity(this.state.activity)
-      : this.props.addActivity(this.state.activity);
-    this.props.history.push('/');
+      : this.props.addActivity(token, this.state.activity);
+
+    this.props.history.push("/");
   };
 
   render() {
+    console.log(this.state.activity);
     return (
       <ActivityForm
         name={this.state.activity.name}
