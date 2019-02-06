@@ -20,9 +20,9 @@ class MainView extends Component {
   };
 
   componentDidMount = () => {
-    this.props.getActivities(token);
-    // this.props.getReflections(token);
+    setTimeout(this.props.getActivities(token), 2000);
   };
+
   expandCardMenu = id => {
     this.setState(prevState => ({
       isExpanded: !prevState.isExpanded
@@ -32,7 +32,7 @@ class MainView extends Component {
   deleteActivity = id => {
     const token = localStorage.getItem("token");
     this.props.deleteActivity(token, id);
-    this.props.getActivities(token);
+    setTimeout(() => this.props.getActivities(token), 1000);
   };
 
   editActivity = id => {
@@ -44,21 +44,24 @@ class MainView extends Component {
   };
 
   render() {
-    let mappedActivities = this.props.activities.map(activity => (
-      <ActivityCard
-        key={activity.id}
-        id={activity.id}
-        name={activity.name}
-        enjoymentRating={activity.enjoymentRating}
-        energyLevel={activity.energyLevel}
-        engagement={activity.engagement}
-        timestamp={activity.timestamp}
-        editActivity={this.editActivity}
-        deleteActivity={this.deleteActivity}
-        expandCardMenu={this.expandCardMenu}
-        isExpanded={this.state.isExpanded}
-      />
-    ));
+    let mappedActivities;
+    if (Array.isArray(this.props.activities)) {
+      mappedActivities = this.props.activities.map(activity => (
+        <ActivityCard
+          key={activity.id}
+          id={activity.id}
+          name={activity.name}
+          enjoymentRating={activity.enjoymentRating}
+          energyLevel={activity.energyLevel}
+          engagement={activity.engagement}
+          timestamp={activity.timestamp}
+          editActivity={this.editActivity}
+          deleteActivity={this.deleteActivity}
+          expandCardMenu={this.expandCardMenu}
+          isExpanded={this.state.isExpanded}
+        />
+      ));
+    }
 
     return this.props.isLoading ? (
       <div>loading</div>
