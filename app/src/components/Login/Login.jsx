@@ -4,9 +4,10 @@ import Logo from "../../styles/nav-logo.png";
 import GoogleSignIn from "../../styles/btn_google_signin_dark_normal_web@2x.png";
 
 const Login = props => {
+  console.log(props);
   return (
     <LoginPageStyles>
-      <LoginMenuStyles onSubmit={e => props.loginUser(e)}>
+      <LoginMenuStyles onSubmit={props.loginUser}>
         <LogoImage src={Logo} />
         <br />
         <LogoImage src={GoogleSignIn} />
@@ -19,7 +20,7 @@ const Login = props => {
           placeholder="Username"
           onChange={props.handleChange}
           name="username"
-          value={props.currentUsername}
+          value={props.username}
           required
           minLength="4"
         />
@@ -27,7 +28,7 @@ const Login = props => {
           placeholder="Password"
           onChange={props.handleChange}
           name="password"
-          value={props.currentPassword}
+          value={props.password}
           required
           minLength="6"
           type="password"

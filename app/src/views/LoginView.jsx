@@ -9,10 +9,10 @@ import { connect } from "react-redux";
 class LoginView extends Component {
   state = {
     isNewUser: false,
-    fullname: "",
-    email: "",
-    username: "",
-    password: ""
+    user: {
+      username: "",
+      password: ""
+    }
   };
 
   switchView = e => {
@@ -24,24 +24,19 @@ class LoginView extends Component {
 
   registerUser = e => {
     e.preventDefault();
-    const { fullName, email, username, password } = this.state;
-    this.props.saveUser({ fullName, email, username, password });
+    this.props.saveUser(this.state.user);
     //this.redirect();
   };
 
   loginUser = e => {
     e.preventDefault();
-    const { username, password } = this.state;
-    this.props.getUser({ username, password });
+    this.props.getUser(this.state.user);
   };
 
-  saveRegisterData = e => {
-    //Change the view after registered
-    this.switchView();
-  };
   handleChange = e => {
     e.preventDefault();
-    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
+    this.setState({ ...this.state, user: { [e.target.name]: e.target.value } });
   };
 
   render() {
@@ -52,19 +47,22 @@ class LoginView extends Component {
         switchView={this.switchView}
       />
     ) : (
-      <Login loginUser={this.loginUser} switchView={this.switchView} />
+      <Login
+        loginUser={this.loginUser}
+        handleChange={this.handleChange}
+        switchView={this.switchView}
+      />
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    saveUser: state.saveUser,
-    getUser: state.getUser
+    isLoading: state.isLoading
   };
 };
 
 export default connect(
   mapStateToProps,
-  { saveUser, getUser }
+  { getUser, saveUser }
 )(LoginView);

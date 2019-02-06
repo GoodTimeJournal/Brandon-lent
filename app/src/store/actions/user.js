@@ -14,13 +14,15 @@ export const getUser = userData => dispatch => {
   dispatch({
     type: GET_USER
   });
+  
   axios
     .post(`${baseURL}/api/login`, userData)
     .then(res =>
-      dispatch({
+       dispatch({
         type: GET_USER_COMPLETE,
         payload: res.data
       })
+    
     )
     .catch(err =>
       dispatch({

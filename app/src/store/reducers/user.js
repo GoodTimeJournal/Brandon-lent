@@ -1,8 +1,7 @@
-import { GET_USER, GET_USER_COMPLETE, GET_USER_FAIL } from '../actions/user';
+import { GET_USER, GET_USER_COMPLETE, GET_USER_FAIL, ADD_USER_START, ADD_USER_FAILURE, ADD_USER_SUCCESS } from '../actions/user';
 
 const initialState = {
   user: {},
-  activityLog: [],
   isLoading: false,
   error: ''
 };
@@ -15,12 +14,23 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
-        activityLog: action.payload.activityLog,
         isLoading: false,
         error: ''
       };
-
     case GET_USER_FAIL:
+      return { ...state, isLoading: false, error: action.payload };
+
+      
+    case ADD_USER_START:
+      return { ...state, isLoading: true, error: '' };
+    case ADD_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        isLoading: false,
+        error: ''
+      };
+    case ADD_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload };
 
     default:

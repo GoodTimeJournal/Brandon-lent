@@ -7,10 +7,7 @@ const Register = props => {
   console.log(props);
   return (
     <LoginPageStyles>
-      <LoginMenuStyles
-        autoComplete="false"
-        onSubmit={e => props.registerUser(e)}
-      >
+      <LoginMenuStyles autoComplete="false" onSubmit={props.registerUser}>
         <LogoImage src={Logo} />
         <TextField
           fullWidth
