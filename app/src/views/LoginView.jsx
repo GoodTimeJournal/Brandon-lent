@@ -31,7 +31,8 @@ class LoginView extends Component {
 
   loginUser = e => {
     e.preventDefault();
-    const { fullname, email, username, password } = this.state;
+    const { username, password } = this.state;
+    this.props.getUser({ username, password });
   };
 
   saveRegisterData = e => {
@@ -51,11 +52,7 @@ class LoginView extends Component {
         switchView={this.switchView}
       />
     ) : (
-      <Login
-        loginUser={this.loginUser}
-        switchView={this.switchView}
-        logIn={this.props.logIn}
-      />
+      <Login loginUser={this.loginUser} switchView={this.switchView} />
     );
   }
 }

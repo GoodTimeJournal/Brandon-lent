@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ReflectionFormOne from '../components/Main/ReflectionFormOne';
-import ReflectionFormTwo from '../components/Main/ReflectionFormTwo';
-import ReflectionFormThree from '../components/Main/ReflectionFormThree';
-import ReflectionFormSubmit from '../components/Main/ReflectionFormSubmit';
-import '../styles/ReflectionForm.scss';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import ReflectionFormOne from "../components/Main/ReflectionFormOne";
+import ReflectionFormTwo from "../components/Main/ReflectionFormTwo";
+import ReflectionFormThree from "../components/Main/ReflectionFormThree";
+import ReflectionFormSubmit from "../components/Main/ReflectionFormSubmit";
+import "../styles/ReflectionForm.scss";
 
-import { addReflection } from '../store/actions/reflection';
+import { addReflection } from "../store/actions/reflection";
 
 class ReflectionFormView extends Component {
   state = {
     page: 1,
     reflection: {
-      q1: '',
-      q2: '',
-      q3: '',
-      summary: ''
+      q1: "",
+      q2: "",
+      q3: "",
+      summary: ""
     }
   };
 
@@ -39,7 +39,7 @@ class ReflectionFormView extends Component {
   addReflection = e => {
     e.preventDefault();
     this.props.addReflection(this.state.reflection);
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   render() {
@@ -79,6 +79,8 @@ class ReflectionFormView extends Component {
             previousStep={this.previousStep}
           />
         );
+      default:
+        return <h1>An error has occured</h1>;
     }
   }
 }

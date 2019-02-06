@@ -6,7 +6,7 @@ import GoogleSignIn from "../../styles/btn_google_signin_dark_normal_web@2x.png"
 const Login = props => {
   return (
     <LoginPageStyles>
-      <LoginMenuStyles onSubmit={props.logIn}>
+      <LoginMenuStyles onSubmit={e => props.loginUser(e)}>
         <LogoImage src={Logo} />
         <br />
         <LogoImage src={GoogleSignIn} />
@@ -18,7 +18,7 @@ const Login = props => {
         <LoginInputStyles
           placeholder="Username"
           onChange={props.handleChange}
-          name="currentUsername"
+          name="username"
           value={props.currentUsername}
           required
           minLength="4"
@@ -26,13 +26,13 @@ const Login = props => {
         <LoginInputStyles
           placeholder="Password"
           onChange={props.handleChange}
-          name="currentPassword"
+          name="password"
           value={props.currentPassword}
           required
           minLength="6"
           type="password"
         />
-        <LoginButton>Login</LoginButton>
+        <LoginButton type="submit">Login</LoginButton>
         <br />
         <p>Forgot your password?</p>
       </LoginMenuStyles>

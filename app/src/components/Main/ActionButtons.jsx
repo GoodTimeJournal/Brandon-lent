@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Fab from "@material-ui/core/Fab";
 import {
   AddCircle,
@@ -26,7 +26,6 @@ class ActionButtons extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="buttons">
         {this.state.isButtonsOpen ? (

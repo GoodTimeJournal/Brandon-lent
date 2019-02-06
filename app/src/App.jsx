@@ -7,11 +7,11 @@ import LoginView from "./views/LoginView";
 import ReflectionFormView from "./views/ReflectionFormView";
 
 import { Route } from "react-router";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class App extends Component {
   state = {
-    isLoggedIn: true
+    isLoggedIn: false
   };
 
   logIn = e => {

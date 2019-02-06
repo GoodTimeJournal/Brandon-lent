@@ -10,12 +10,12 @@ export const ADD_USER_FAILURE = "ADD_USER_FAILURE";
 
 const baseURL = 'https://polar-plateau-24996.herokuapp.com'
 
-export const getUser = () => dispatch => {
+export const getUser = userData => dispatch => {
   dispatch({
     type: GET_USER
   });
   axios
-    .get(`${baseURL}/api/login`)
+    .post(`${baseURL}/api/login`, userData)
     .then(res =>
       dispatch({
         type: GET_USER_COMPLETE,

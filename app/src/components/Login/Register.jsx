@@ -145,10 +145,10 @@ const SwitchMenuStyles = styles.form`
   padding: 20px 0;
   margin-top: 15px;
 `;
-const SignUpText = styles.h2`
-  font-size: 28px;
-  margin-top: 25px;
-`;
+// const SignUpText = styles.h2`
+//   font-size: 28px;
+//   margin-top: 25px;
+// `;
 
 const LogoImage = styles.img`
   width: 200px;
