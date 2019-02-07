@@ -35,14 +35,6 @@ export const addReflection = reflection => dispatch => {
       })
     );
 };
-
-export const openReflection = reflection => {
-  return {
-    type: OPEN_REFLECTION,
-    payload: reflection
-  };
-};
-
 export const updateReflection = reflection => dispatch => {
   axios
     .put(
@@ -63,15 +55,12 @@ export const updateReflection = reflection => dispatch => {
     );
 };
 
-export const deleteReflection = id => dispatch => {
-  axios.delete(`http://localhost:5000/api/user/reflection/${id}`).then(res =>
-    dispatch({
-      type: DELETE_REFLECTION,
-      payload: res.data
-    })
-  );
+export const openReflection = reflection => {
+  return {
+    type: OPEN_REFLECTION,
+    payload: reflection
+  };
 };
-
 export const getReflections = token => dispatch => {
   dispatch({
     type: GET_REFLECTIONS
@@ -87,3 +76,14 @@ export const getReflections = token => dispatch => {
     )
     .catch(err => console.log(err));
 };
+
+
+export const deleteReflection = id => dispatch => {
+  axios.delete(`http://localhost:5000/api/user/reflection/${id}`).then(res =>
+    dispatch({
+      type: DELETE_REFLECTION,
+      payload: res.data
+    })
+  );
+};
+

@@ -8,13 +8,6 @@ const Login = props => {
     <LoginPageStyles>
       <LoginMenuStyles onSubmit={props.loginUser}>
         <LogoImage src={Logo} />
-        {/* <br />
-        {/* <LogoImage src={GoogleSignIn} />
-        <SeperateContent>
-          <hr />
-          <p>or</p>
-          <hr />
-        </SeperateContent> */}
         <LoginInputStyles
           placeholder="Username"
           onChange={props.handleChange}
