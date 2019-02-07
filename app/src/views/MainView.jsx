@@ -23,12 +23,6 @@ class MainView extends Component {
     setTimeout(() => this.props.getActivities(token), 500);
   };
 
-  expandCardMenu = id => {
-    this.setState(prevState => ({
-      isExpanded: !prevState.isExpanded
-    }));
-  };
-
   deleteActivity = id => {
     const token = localStorage.getItem("token");
     this.props.deleteActivity(token, id);
@@ -36,11 +30,9 @@ class MainView extends Component {
   };
 
   editActivity = id => {
-    const selected = this.props.activityLog.find(
-      activity => activity.id === id
-    );
+    const selected = this.props.activities.find(activity => activity.id === id);
     this.props.history.push("/activity");
-    this.props.editActivity(selected);
+    setTimeout(() => this.props.editActivity(selected), 2000);
   };
 
   render() {
