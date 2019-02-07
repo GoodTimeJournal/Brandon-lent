@@ -45,6 +45,7 @@ export const editActivity = activity => {
   };
 };
 
+
 export const updateActivity = (token, activity) => dispatch => {
   axios
     .put(`${baseURL}/activities${activity.id}`, activity, {
