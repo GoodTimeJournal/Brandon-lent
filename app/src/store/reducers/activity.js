@@ -54,17 +54,17 @@ export default function(state = initialState, action) {
         error: '',
         activeEdit: action.payload
       };
-    case UPDATE_ACTIVITY:
+      case UPDATE_ACTIVITY:
       return { ...state, isLoading: true, error: '' };
     case UPDATE_ACTIVITY_COMPLETE:
-    return {
-      ...state,
-      activities: action.payload,
-      isLoading: false,
-      error: '',
-      activeEdit: {},
-      isEditing: false
-    };
+      return {
+        ...state,
+        activities: action.payload,
+        isLoading: false,
+        error: '',
+        activeEdit: {},
+        isEditing: false
+      };
     case UPDATE_ACTIVITY_FAIL:
       return { ...state, isLoading: false, error: action.payload };
     case DELETE_ACTIVITY:

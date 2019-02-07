@@ -13,10 +13,10 @@ const Register = props => {
           fullWidth
           label="Full Name"
           placeholder="Full Name"
-          // onChange={props.handleChange}
+          onChange={props.handleChange}
           name="fullname"
           type="text"
-          // value={props.currentName}
+          value={props.fullname}
           required
           minLength="2"
         />
@@ -24,9 +24,9 @@ const Register = props => {
           fullWidth
           label="Email"
           placeholder="Email"
-          // onChange={props.handleChange}
+          onChange={props.handleChange}
           name="email"
-          // value={props.currentUsername}
+          value={props.email}
           required
           minLength="4"
         />
@@ -36,7 +36,7 @@ const Register = props => {
           placeholder="Username"
           onChange={props.handleChange}
           name="username"
-          value={props.currentUsername}
+          value={props.username}
           required
           minLength="4"
         />
@@ -46,7 +46,7 @@ const Register = props => {
           placeholder="Password"
           onChange={props.handleChange}
           name="password"
-          value={props.currentPassword}
+          value={props.password}
           required
           minLength="6"
           type="password"

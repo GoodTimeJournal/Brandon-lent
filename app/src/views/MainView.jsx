@@ -23,16 +23,16 @@ class MainView extends Component {
     setTimeout(() => this.props.getActivities(token), 500);
   };
 
+  editActivity = id => {
+    const selected = this.props.activities.find(activity => activity.id === id);
+    this.props.history.push("/activity");
+    this.props.editActivity(selected);
+  };
+
   deleteActivity = id => {
     const token = localStorage.getItem("token");
     this.props.deleteActivity(token, id);
     setTimeout(() => this.props.getActivities(token), 1000);
-  };
-
-  editActivity = id => {
-    const selected = this.props.activities.find(activity => activity.id === id);
-    this.props.history.push("/activity");
-    setTimeout(() => this.props.editActivity(selected), 2000);
   };
 
   render() {
