@@ -20,7 +20,7 @@ class MainView extends Component {
   };
 
   componentDidMount = () => {
-    setTimeout(this.props.getActivities(token), 2000);
+    setTimeout(() => this.props.getActivities(token), 500);
   };
 
   expandCardMenu = id => {
